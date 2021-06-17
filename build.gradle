@@ -1,0 +1,62 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+
+    }
+    
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+
+group 'com.ktorpostgresample'
+version '0.0.1'
+mainClassName = "io.ktor.server.netty.EngineMain"
+
+sourceSets {
+    main.kotlin.srcDirs = main.java.srcDirs = ['src']
+    test.kotlin.srcDirs = test.java.srcDirs = ['test']
+    main.resources.srcDirs = ['resources']
+    test.resources.srcDirs = ['testresources']
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "io.ktor:ktor-server-netty:$ktor_version"
+    implementation "ch.qos.logback:logback-classic:$logback_version"
+    testImplementation "io.ktor:ktor-server-tests:$ktor_version"
+    implementation group: 'io.ktor', name: 'ktor-gson', version: ktor_version
+
+
+    implementation group: 'org.jetbrains.exposed', name: 'exposed-core', version: '0.32.1'
+    implementation group: 'org.jetbrains.exposed', name: 'exposed-dao', version: '0.32.1'
+    runtimeOnly group: 'org.jetbrains.exposed', name: 'exposed-jdbc', version: '0.32.1'
+
+    implementation("com.h2database:h2:1.4.199")
+    implementation("org.postgresql:postgresql:42.2.21")
+    implementation "com.zaxxer:HikariCP:3.4.2"
+    // https://mvnrepository.com/artifact/io.insert-koin/koin-core
+    implementation group: 'io.insert-koin', name: 'koin-core', version: '2.2.3'
+    // https://mvnrepository.com/artifact/io.insert-koin/koin-core-ext
+    implementation group: 'io.insert-koin', name: 'koin-core-ext', version: '2.2.3'
+
+    implementation group: 'io.insert-koin', name: 'koin-ktor', version: '2.2.3'
+
+
+}
