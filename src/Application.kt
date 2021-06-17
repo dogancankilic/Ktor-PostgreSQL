@@ -2,7 +2,7 @@ package com.ktorpostgresample
 
 import api.NoteApi
 import api.NoteApiImp
-import com.ktorpostgresample.entity.Notes
+import com.ktorpostgresample.dao.Notes
 import com.ktorpostgresample.model.Note
 import com.ktorpostgresample.repository.NoteRepository
 import di.notepadModule

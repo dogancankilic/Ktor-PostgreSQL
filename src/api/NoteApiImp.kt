@@ -1,11 +1,9 @@
 package api
 
 
-import com.ktorpostgresample.entity.Notes
+import com.ktorpostgresample.dao.Notes
 import com.ktorpostgresample.model.Note
-import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class NoteApiImp : NoteApi {
