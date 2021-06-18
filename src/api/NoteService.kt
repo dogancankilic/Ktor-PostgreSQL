@@ -3,7 +3,6 @@ package com.ktorpostgresample.api
 import com.ktorpostgresample.dao.Notes
 import com.ktorpostgresample.model.Note
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class NoteService {

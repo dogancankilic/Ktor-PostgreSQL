@@ -36,7 +36,7 @@ fun Route.notepadRoutes() {
 
     post("/notes/add") {
         val noteDto = call.receive<Note>()
-        if (noteDto.note == null) {
+        if (noteDto.note == null || noteDto.title == null) {
             call.respond(HttpStatusCode.BadRequest)
             return@post
         }
@@ -49,7 +49,7 @@ fun Route.notepadRoutes() {
     post("/notes/update/{id}") {
         val id = call.parameters["id"]!!.toInt()
         val noteDto = call.receive<Note>()
-        if (noteDto.note == null) {
+        if (noteDto.note == null || noteDto.title == null) {
             call.respond(HttpStatusCode.BadRequest)
             return@post
         }

@@ -58,5 +58,10 @@ dependencies {
 
     implementation group: 'io.insert-koin', name: 'koin-ktor', version: '2.2.3'
 
+    testImplementation "io.insert-koin:koin-test:2.2.3"
+
+
+
+
 
 }
