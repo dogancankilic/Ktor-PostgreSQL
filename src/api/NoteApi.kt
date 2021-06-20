@@ -16,5 +16,4 @@ interface NoteApi {
     fun updateNote(id: Int, note: Note): Note?
 
 
-
 }

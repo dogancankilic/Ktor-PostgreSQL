@@ -13,7 +13,7 @@ import org.koin.test.inject
 
 class UtilityTest : KoinTest{
 
-    val utility by inject<Utility>()
+    val mockUtility by inject<Utility>()
 
     @get:Rule
     val koinTestRule = KoinTestRule.create {
@@ -24,13 +24,13 @@ class UtilityTest : KoinTest{
     @Test
     fun `if checkNumber() return true`() {
 
-        assertTrue(utility.checkNumber("3"));
+        assertTrue(mockUtility.checkNumber("3"));
     }
 
     @Test
     fun `if checkNumber() return false`() {
 
-        assertFalse(utility.checkNumber("abc"));
+        assertFalse(mockUtility.checkNumber("abc"));
 
     }
 

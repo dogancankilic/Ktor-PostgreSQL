@@ -6,8 +6,10 @@ import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class NoteService {
+
      fun getNotes(): ArrayList<Note> {
-        val notes: ArrayList<Note> = arrayListOf()
+
+         val notes: ArrayList<Note> = arrayListOf()
 
         transaction {
             Notes.selectAll().map {
