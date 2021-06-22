@@ -47,22 +47,22 @@ fun Route.notepadRoutes() {
 
     }
 
-    post("/notes/update/{id}") {
+    put("/notes/update/{id}") {
         val id = call.parameters["id"]!!.toInt()
         val noteDto = call.receive<Note>()
         if (noteDto.note == null || noteDto.title == null) {
             call.respond(HttpStatusCode.BadRequest)
-            return@post
+            return@put
         }
         repository.updateNote(id, noteDto)
         call.respond(noteDto)
     }
 
-    post("/notes/delete/{id}") {
+    delete("/notes/delete/{id}") {
         val id = call.parameters["id"]
         if (id?.let { it1 -> utility.checkNumber(it1) } == false) {
             call.respond(HttpStatusCode.BadRequest)
-            return@post
+            return@delete
         }
         val removed = id?.let { it1 -> repository.deleteNote(it1.toInt()) }
         if (removed == true) call.respond(HttpStatusCode.OK)
