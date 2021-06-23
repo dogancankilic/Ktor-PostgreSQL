@@ -10,3 +10,13 @@ CRUD operations
 - POST http://localhost:8080/notes/add add a new note
 - PUT http://localhost:8080/notes/update/{id} updates the note with the belonged id
 - DELETE http://localhost:8080/notes/delete/{id} deletes the note with the belonged id
+
+## Contributing
+
+If you'd like to contribute please no hesitate to fork and send a PR 
+
+## Contact
+
+Doğan Can Kılıç - mail@dogancankilic.com
+
+
